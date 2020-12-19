@@ -52,13 +52,9 @@ set(TESTUTILS_SRC
 	mocks/MockDefaultParameters.h
 	)
 
-add_library(KIMAGEANNOTATOR_STATIC STATIC ${KIMAGEANNOTATOR_SRCS})
-
-target_link_libraries(KIMAGEANNOTATOR_STATIC Qt5::Widgets Qt5::Svg kImageAnnotator)
-
 foreach (UnitTest ${UNITTEST_SRC})
 	get_filename_component(UnitTestName ${UnitTest} NAME_WE)
 	add_executable(${UnitTestName} ${UnitTest} ${TESTUTILS_SRC})
-	target_link_libraries(${UnitTestName} KIMAGEANNOTATOR_STATIC Qt5::Test)
+	target_link_libraries(${UnitTestName} kImageAnnotator Qt5::Test)
 	add_test(${UnitTestName} ${UnitTestName})
 endforeach (UnitTest)
