@@ -58,17 +58,17 @@ int AnnotationTabWidget::addTab(const QPixmap &image, const QString &title, cons
 
 AnnotationArea* AnnotationTabWidget::currentAnnotationArea() const
 {
-	return currentWidget() != nullptr ? dynamic_cast<AnnotationTabContent*>(currentWidget())->annotationArea() : nullptr;
+	return currentWidget() ? dynamic_cast<AnnotationTabContent*>(currentWidget())->annotationArea() : nullptr;
 }
 
 AnnotationArea *AnnotationTabWidget::annotationAreaAt(int index) const
 {
-	return widget(index) != nullptr ? dynamic_cast<AnnotationTabContent*>(widget(index))->annotationArea() : nullptr;
+	return widget(index) ? dynamic_cast<AnnotationTabContent*>(widget(index))->annotationArea() : nullptr;
 }
 
 ZoomValueProvider *AnnotationTabWidget::currentZoomValueProvider() const
 {
-	return currentWidget() != nullptr ? dynamic_cast<AnnotationTabContent *>(currentWidget())->zoomValueProvider() : nullptr;
+	return currentWidget() ? dynamic_cast<AnnotationTabContent *>(currentWidget())->zoomValueProvider() : nullptr;
 }
 
 QAction *AnnotationTabWidget::undoAction() const
@@ -107,7 +107,7 @@ void AnnotationTabWidget::tabRemoved(int index)
 void AnnotationTabWidget::undoTriggered() const
 {
 	auto annotationArea = currentAnnotationArea();
-	if(annotationArea != nullptr) {
+	if(annotationArea) {
 		annotationArea->undoAction()->trigger();
 	}
 }
@@ -115,7 +115,7 @@ void AnnotationTabWidget::undoTriggered() const
 void AnnotationTabWidget::redoTriggered() const
 {
 	auto annotationArea = currentAnnotationArea();
-	if(annotationArea != nullptr) {
+	if(annotationArea) {
 		annotationArea->redoAction()->trigger();
 	}
 }
@@ -138,7 +138,7 @@ void AnnotationTabWidget::tabChanged()
 {
 	mSettingsProvider->setActiveListener(currentAnnotationArea());
 	const auto zoomValueProvider = currentZoomValueProvider();
-	if(zoomValueProvider != nullptr) {
+	if(zoomValueProvider) {
 		mSettingsProvider->updateZoomLevel(zoomValueProvider->zoomValue());
 	}
 }

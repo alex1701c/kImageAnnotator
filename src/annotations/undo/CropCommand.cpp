@@ -34,7 +34,7 @@ void CropCommand::undo()
 {
 	for (auto item : mAnnotationArea->items()) {
 		auto baseItem = dynamic_cast<AbstractAnnotationItem *>(item);
-		if (baseItem != nullptr) {
+		if (baseItem) {
 			baseItem->setPosition(baseItem->position() + mNewItemOffset);
 		}
 	}
@@ -47,7 +47,7 @@ void CropCommand::redo()
 {
 	for (auto item : mAnnotationArea->items()) {
 		auto baseItem = dynamic_cast<AbstractAnnotationItem *>(item);
-		if (baseItem != nullptr) {
+		if (baseItem) {
 			baseItem->setPosition(baseItem->position() - mNewItemOffset);
 		}
 	}

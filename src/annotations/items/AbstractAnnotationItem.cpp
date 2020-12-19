@@ -24,7 +24,7 @@ namespace kImageAnnotator {
 AbstractAnnotationItem::AbstractAnnotationItem(const PropertiesPtr &properties) :
 	mShadowEffect(nullptr)
 {
-	Q_ASSERT(properties != nullptr);
+	Q_ASSERT(properties);
 
 	updateProperties(properties);
 	mPainterPen.setCapStyle(Qt::RoundCap);
@@ -182,7 +182,7 @@ void AbstractAnnotationItem::finish()
 
 void AbstractAnnotationItem::setProperties(const PropertiesPtr &properties)
 {
-	Q_ASSERT(properties != nullptr);
+	Q_ASSERT(properties);
 
 	prepareGeometryChange();
 	updateProperties(properties);

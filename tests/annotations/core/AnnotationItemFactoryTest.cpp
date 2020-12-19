@@ -58,7 +58,7 @@ void AnnotationItemFactoryTest::TestCreate_Should_CreateImageItemAtProvidedPosit
 
 	auto item = itemFactory.create(position, image);
 
-	QVERIFY(dynamic_cast<AnnotationImage*>(item) != nullptr);
+	QVERIFY(dynamic_cast<AnnotationImage*>(item));
 	QCOMPARE(item->position(), position);
 }
 
@@ -86,7 +86,7 @@ void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationLine_When_Type
 	auto item = itemFactory.create(QPoint(0, 0));
 
 	auto result = dynamic_cast<AnnotationLine *>(item);
-	QVERIFY(result != nullptr);
+	QVERIFY(result);
 }
 
 void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationArrow_When_TypeIsArrow()
@@ -100,7 +100,7 @@ void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationArrow_When_Typ
 	auto item = itemFactory.create(QPoint(0, 0));
 
 	auto result = dynamic_cast<AnnotationArrow *>(item);
-	QVERIFY(result != nullptr);
+	QVERIFY(result);
 }
 
 void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationRect_When_TypeIsRect()
@@ -114,7 +114,7 @@ void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationRect_When_Type
 	auto item = itemFactory.create(QPoint(0, 0));
 
 	auto result = dynamic_cast<AnnotationRect *>(item);
-	QVERIFY(result != nullptr);
+	QVERIFY(result);
 }
 
 void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationEllipse_When_TypeIsEllipse()
@@ -128,7 +128,7 @@ void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationEllipse_When_T
 	auto item = itemFactory.create(QPoint(0, 0));
 
 	auto result = dynamic_cast<AnnotationEllipse *>(item);
-	QVERIFY(result != nullptr);
+	QVERIFY(result);
 }
 
 void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationNumber_When_TypeIsNumber()
@@ -142,7 +142,7 @@ void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationNumber_When_Ty
 	auto item = itemFactory.create(QPoint(0, 0));
 
 	auto result = dynamic_cast<AnnotationNumber *>(item);
-	QVERIFY(result != nullptr);
+	QVERIFY(result);
 }
 
 void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationSticker_When_TypeIsSticker()
@@ -156,7 +156,7 @@ void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationSticker_When_T
 	auto item = itemFactory.create(QPoint(0, 0));
 
 	auto result = dynamic_cast<AnnotationSticker *>(item);
-	QVERIFY(result != nullptr);
+	QVERIFY(result);
 }
 
 void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationNumberPointer_When_TypeIsNumberPointer()
@@ -170,7 +170,7 @@ void AnnotationItemFactoryTest::TestCreate_Should_ReturnAnnotationNumberPointer_
 	auto item = itemFactory.create(QPoint(0, 0));
 
 	auto result = dynamic_cast<AnnotationNumberPointer *>(item);
-	QVERIFY(result != nullptr);
+	QVERIFY(result);
 }
 
 void AnnotationItemFactoryTest::TestClone_Should_ReturnNewItemOfSameType()

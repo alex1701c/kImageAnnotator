@@ -37,8 +37,8 @@ AnnotationArea::AnnotationArea(Config *config, AbstractSettingsProvider *setting
 	mDevicePixelRatioScaler(devicePixelRatioScaler),
 	mConfig(config)
 {
-	Q_ASSERT(mSettingsProvider != nullptr);
-	Q_ASSERT(mConfig != nullptr);
+	Q_ASSERT(mSettingsProvider);
+	Q_ASSERT(mConfig);
 
 	addItem(mItemModifier);
 
@@ -94,7 +94,7 @@ void AnnotationArea::replaceBackgroundImage(const QPixmap &image)
 
 QImage AnnotationArea::image()
 {
-	if (mImage == nullptr) {
+	if (!mImage) {
 		return QImage();
 	}
 
@@ -119,7 +119,7 @@ QImage AnnotationArea::image()
 
 QAction *AnnotationArea::undoAction()
 {
-	if(mUndoAction == nullptr) {
+	if(!mUndoAction) {
 		mUndoAction = mUndoStack->createUndoAction(this);
 	}
 	return mUndoAction;
@@ -127,7 +127,7 @@ QAction *AnnotationArea::undoAction()
 
 QAction *AnnotationArea::redoAction()
 {
-	if(mRedoAction == nullptr) {
+	if(!mRedoAction) {
 		mRedoAction = mUndoStack->createRedoAction(this);
 	}
 	return mRedoAction;
@@ -230,7 +230,7 @@ void AnnotationArea::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 	if (event->button() == Qt::LeftButton) {
 		if (mSettingsProvider->toolType() == Tools::Select) {
 			mItemModifier->handleMouseRelease(mItems);
-		} else if (mCurrentItem != nullptr) {
+		} else if (mCurrentItem) {
 			mCurrentItem->finish();
 			mCurrentItem = nullptr;
 			if (mConfig->switchToSelectToolAfterDrawingItem()) {
@@ -258,7 +258,7 @@ void AnnotationArea::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 	auto isMenuOverItem = !selectedItems.isEmpty();
 	contextMenu.setOverItem(isMenuOverItem);
 	contextMenu.setPastEnabled(!mItemCopier->isEmpty());
-    contextMenu.setEditVisible(selectedEditableItem() != nullptr);
+    contextMenu.setEditVisible(selectedEditableItem());
 	AnnotationItemArranger itemArranger(selectedItems, mItems);
 	connect(&itemArranger, &AnnotationItemArranger::newCommand, mUndoStack, &UndoStack::push);
 	connect(&contextMenu, &AnnotationContextMenu::bringToFront, &itemArranger, &AnnotationItemArranger::bringToFront);
@@ -331,7 +331,7 @@ void AnnotationArea::pasteCopiedItems(const QPointF &position)
 void AnnotationArea::enableEditing()
 {
     auto editableItem = selectedEditableItem();
-    if(editableItem != nullptr) {
+    if(editableItem) {
         mItemModifier->clear();
         editableItem->enableEditing();
         itemsDeselected();

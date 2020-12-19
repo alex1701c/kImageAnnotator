@@ -70,7 +70,7 @@ void AnnotationMultiItemResizer::grabHandle(const QPointF &pos, bool keepAspectR
 
 void AnnotationMultiItemResizer::moveHandle(const QPointF &pos)
 {
-    if (mCurrentResizer == nullptr) {
+    if (!mCurrentResizer) {
         return;
     }
 
@@ -79,7 +79,7 @@ void AnnotationMultiItemResizer::moveHandle(const QPointF &pos)
 
 void AnnotationMultiItemResizer::releaseHandle()
 {
-    if (mCurrentResizer == nullptr) {
+    if (!mCurrentResizer) {
         return;
     }
 
@@ -88,7 +88,7 @@ void AnnotationMultiItemResizer::releaseHandle()
 
 bool AnnotationMultiItemResizer::isResizing() const
 {
-    return mCurrentResizer != nullptr && mCurrentResizer->isResizing();
+    return mCurrentResizer && mCurrentResizer->isResizing();
 }
 
 void AnnotationMultiItemResizer::refresh()
@@ -128,7 +128,7 @@ Qt::CursorShape AnnotationMultiItemResizer::cursorForPos(const QPointF &pos)
 
 Qt::CursorShape AnnotationMultiItemResizer::cursorForCurrentHandle()
 {
-    if (mCurrentResizer == nullptr) {
+    if (!mCurrentResizer) {
         return CursorHelper::defaultCursor();
     }
     return mCurrentResizer->cursorForCurrentHandle();
@@ -136,7 +136,7 @@ Qt::CursorShape AnnotationMultiItemResizer::cursorForCurrentHandle()
 
 void AnnotationMultiItemResizer::hideCurrentResizer()
 {
-    if (mCurrentResizer == nullptr) {
+    if (!mCurrentResizer) {
         return;
     }
 
@@ -145,7 +145,7 @@ void AnnotationMultiItemResizer::hideCurrentResizer()
 
 void AnnotationMultiItemResizer::showCurrentResizer()
 {
-    if (mCurrentResizer == nullptr) {
+    if (!mCurrentResizer) {
         return;
     }
 

@@ -81,7 +81,7 @@ void CropSelectionHandler::release()
 
 void CropSelectionHandler::resetSelection()
 {
-	Q_ASSERT(mAnnotationArea != nullptr);
+	Q_ASSERT(mAnnotationArea);
 
 	mMaxSelection = mAnnotationArea->sceneRect();
 	setSelection(mAnnotationArea->sceneRect());
@@ -118,7 +118,7 @@ void CropSelectionHandler::setPositionY(int y)
 
 void CropSelectionHandler::update()
 {
-	Q_ASSERT(mAnnotationArea != nullptr);
+	Q_ASSERT(mAnnotationArea);
 
 	mCropHandles.updateHandles(mSelection);
 	mAnnotationArea->update();

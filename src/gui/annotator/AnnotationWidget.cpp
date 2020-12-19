@@ -64,19 +64,19 @@ void AnnotationWidget::initGui()
 QImage AnnotationWidget::image() const
 {
 	auto currentAnnotationArea = annotationArea();
-	return currentAnnotationArea != nullptr ? currentAnnotationArea->image() : QImage();
+	return currentAnnotationArea ? currentAnnotationArea->image() : QImage();
 }
 
 QImage AnnotationWidget::imageAt(int index) const
 {
 	auto annotationArea = annotationAreaAt(index);
-	return annotationArea != nullptr ? annotationArea->image() : QImage();
+	return annotationArea ? annotationArea->image() : QImage();
 }
 
 void AnnotationWidget::loadImage(const QPixmap &pixmap)
 {
 	auto currentAnnotationArea = annotationArea();
-	if(currentAnnotationArea == nullptr) {
+	if(!currentAnnotationArea) {
 		addTab(pixmap, QString(), QString());
 	} else {
 		currentAnnotationArea->loadImage(pixmap);
@@ -96,7 +96,7 @@ void AnnotationWidget::updateTabInfo(int index, const QString &title, const QStr
 void AnnotationWidget::insertImageItem(const QPointF &position, const QPixmap &pixmap) const
 {
 	auto currentAnnotationArea = annotationArea();
-	if(currentAnnotationArea != nullptr) {
+	if(currentAnnotationArea) {
 		currentAnnotationArea->insertImageItem(position, pixmap);
 	}
 }
@@ -124,7 +124,7 @@ QAction *AnnotationWidget::redoAction() const
 void AnnotationWidget::clearSelection() const
 {
 	auto currentAnnotationArea = annotationArea();
-	if(currentAnnotationArea != nullptr) {
+	if(currentAnnotationArea) {
 		annotationArea()->clearSelection();
 	}
 }

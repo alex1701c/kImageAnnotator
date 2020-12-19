@@ -73,7 +73,7 @@ void kImageAnnotator::GridMenu::setCurrentData(const QVariant &data)
 	const auto buttons = mButtonGroup->buttons();
 	for(auto button : buttons) {
 		auto gridMenuButton = dynamic_cast<GridMenuButton *>(button);
-		if(gridMenuButton != nullptr && gridMenuButton->data() == data) {
+		if(gridMenuButton && gridMenuButton->data() == data) {
 			gridMenuButton->setChecked(true);
 			emit selectionChanged();
 			return;
@@ -84,19 +84,19 @@ void kImageAnnotator::GridMenu::setCurrentData(const QVariant &data)
 QIcon kImageAnnotator::GridMenu::currentIcon() const
 {
 	auto button = mButtonGroup->checkedButton();
-	return button != nullptr ? button->icon() : QIcon();
+	return button ? button->icon() : QIcon();
 }
 
 QVariant kImageAnnotator::GridMenu::currentData() const
 {
 	auto button = dynamic_cast<GridMenuButton*>(mButtonGroup->checkedButton());
-	return button != nullptr ? button->data() : QVariant();
+	return button ? button->data() : QVariant();
 }
 
 QString kImageAnnotator::GridMenu::currentToolTip() const
 {
 	auto button = mButtonGroup->checkedButton();
-	return button != nullptr ? button->toolTip() : QString();
+	return button ? button->toolTip() : QString();
 }
 
 void kImageAnnotator::GridMenu::buttonClicked()

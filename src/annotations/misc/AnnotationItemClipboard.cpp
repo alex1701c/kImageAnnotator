@@ -23,7 +23,7 @@ namespace kImageAnnotator {
 
 AnnotationItemClipboard::AnnotationItemClipboard(const AnnotationItemModifier *itemModifier)
 {
-	Q_ASSERT(itemModifier != nullptr);
+	Q_ASSERT(itemModifier);
 
 	mItemModifier = itemModifier;
 }

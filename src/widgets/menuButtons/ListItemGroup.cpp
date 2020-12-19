@@ -33,7 +33,7 @@ void ListItemGroup::addItem(ListMenuItem *item)
 	mItems.append(item);
 	connect(item, &ListMenuItem::toggled, this, &ListItemGroup::updateCheckedItem);
 
-	if(mCheckedItem == nullptr) {
+	if(!mCheckedItem) {
 		mCheckedItem = item;
 		mCheckedItem->setIsChecked(true);
 	}
@@ -52,7 +52,7 @@ QList<ListMenuItem *> ListItemGroup::items() const
 void ListItemGroup::updateCheckedItem()
 {
 	auto item = dynamic_cast<ListMenuItem*>(sender());
-	if(item != nullptr && item->isChecked()) {
+	if(item && item->isChecked()) {
 		mCheckedItem->setIsChecked(false);
 		mCheckedItem = item;
 		emit checkedItemChanged();

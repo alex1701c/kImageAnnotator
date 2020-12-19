@@ -29,7 +29,7 @@ CropView::CropView(CropSelectionHandler *cropSelectionHandler, KeyHelper *keyHel
 
 void CropView::init(AnnotationArea *annotationArea)
 {
-	Q_ASSERT(annotationArea != nullptr);
+	Q_ASSERT(annotationArea);
 
 	setScene(annotationArea);
 }

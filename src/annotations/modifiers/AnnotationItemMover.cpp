@@ -33,7 +33,7 @@ void AnnotationItemMover::moveItems(const QPointF &pos)
 	QHash<AbstractAnnotationItem *, QPointF> itemToNewPos;
 
 	for (auto item : mItemToOffset.keys()) {
-		if (item != nullptr) {
+		if (item) {
 			itemToNewPos[item] = pos - mItemToOffset[item];
 		}
 	}

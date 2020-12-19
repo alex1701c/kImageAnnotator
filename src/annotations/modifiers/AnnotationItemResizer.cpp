@@ -77,7 +77,7 @@ void AnnotationItemResizer::refresh()
 
 bool AnnotationItemResizer::isItemVisible() const
 {
-	return mAnnotationItem != nullptr && mAnnotationItem->isVisible();
+	return mAnnotationItem && mAnnotationItem->isVisible();
 }
 
 void AnnotationItemResizer::setKeepAspectRatio(bool keepAspectRatio)

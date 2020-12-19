@@ -113,7 +113,7 @@ void AnnotationPropertiesFactoryTest::TestCreate_Should_CreatePathPropertiesWhen
 
 	auto pathProperties = properties.dynamicCast<AnnotationPathProperties>();
 
-	QVERIFY(pathProperties != nullptr);
+	QVERIFY(pathProperties);
 }
 
 void AnnotationPropertiesFactoryTest::TestCreate_Should_CreatePathPropertiesWhenItemMarker()
@@ -127,7 +127,7 @@ void AnnotationPropertiesFactoryTest::TestCreate_Should_CreatePathPropertiesWhen
 
 	auto pathProperties = properties.dynamicCast<AnnotationPathProperties>();
 
-	QVERIFY(pathProperties != nullptr);
+	QVERIFY(pathProperties);
 }
 
 void AnnotationPropertiesFactoryTest::TestCreate_Should_CreateTextPropertiesWhenItemNumber()
@@ -141,7 +141,7 @@ void AnnotationPropertiesFactoryTest::TestCreate_Should_CreateTextPropertiesWhen
 
 	auto textProperties = properties.dynamicCast<AnnotationTextProperties>();
 
-	QVERIFY(textProperties != nullptr);
+	QVERIFY(textProperties);
 }
 
 void AnnotationPropertiesFactoryTest::TestCreate_Should_CreateTextPropertiesWhenItemNumberPointer()
@@ -155,7 +155,7 @@ void AnnotationPropertiesFactoryTest::TestCreate_Should_CreateTextPropertiesWhen
 
 	auto textProperties = properties.dynamicCast<AnnotationTextProperties>();
 
-	QVERIFY(textProperties != nullptr);
+	QVERIFY(textProperties);
 }
 
 void AnnotationPropertiesFactoryTest::TestCreate_Should_CreateTextPropertiesWhenItemText()
@@ -169,7 +169,7 @@ void AnnotationPropertiesFactoryTest::TestCreate_Should_CreateTextPropertiesWhen
 
 	auto textProperties = properties.dynamicCast<AnnotationTextProperties>();
 
-	QVERIFY(textProperties != nullptr);
+	QVERIFY(textProperties);
 }
 
 void AnnotationPropertiesFactoryTest::TestCreate_Should_SetSmoothPathBasedOnConfiguration()

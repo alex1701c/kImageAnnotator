@@ -29,21 +29,21 @@ AbstractSettingsProvider::AbstractSettingsProvider() :
 
 void AbstractSettingsProvider::toolChanged(Tools tool)
 {
-	if(mSettingsListener != nullptr) {
+	if(mSettingsListener) {
 		mSettingsListener->toolChanged(tool);
 	}
 }
 
 void AbstractSettingsProvider::firstBadgeNumberChanged(int number)
 {
-	if(mSettingsListener != nullptr) {
+	if(mSettingsListener) {
 		mSettingsListener->firstBadgeNumberChanged(number);
 	}
 }
 
 void AbstractSettingsProvider::itemSettingChanged()
 {
-	if(mSettingsListener != nullptr) {
+	if(mSettingsListener) {
 		mSettingsListener->itemSettingsChanged();
 	}
 }
@@ -51,14 +51,14 @@ void AbstractSettingsProvider::itemSettingChanged()
 void AbstractSettingsProvider::setActiveListener(ISettingsListener *settingsListener)
 {
 	mSettingsListener = settingsListener;
-	if(mSettingsListener != nullptr) {
+	if(mSettingsListener) {
 		updateFirstBadgeNumber(mSettingsListener->firstBadgeNumber());
 	}
 }
 
 void AbstractSettingsProvider::effectChanged(ImageEffects effect)
 {
-	if(mSettingsListener != nullptr) {
+	if(mSettingsListener) {
 		mSettingsListener->imageEffectChanged(effect);
 	}
 }

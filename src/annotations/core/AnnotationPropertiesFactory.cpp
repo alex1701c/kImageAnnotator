@@ -25,8 +25,8 @@ AnnotationPropertiesFactory::AnnotationPropertiesFactory(Config *config, Abstrac
 	mConfig(config),
 	mSettingsProvider(settingsProvider)
 {
-	Q_ASSERT(mConfig != nullptr);
-	Q_ASSERT(mSettingsProvider != nullptr);
+	Q_ASSERT(mConfig);
+	Q_ASSERT(mSettingsProvider);
 }
 
 PropertiesPtr AnnotationPropertiesFactory::create(Tools toolType) const
@@ -123,7 +123,7 @@ void AnnotationPropertiesFactory::setShadowEnabled(const PropertiesPtr &properti
 void AnnotationPropertiesFactory::setPathProperties(const PropertiesPtr &properties) const
 {
 	auto pathProperties = properties.dynamicCast<AnnotationPathProperties>();
-	if (pathProperties != nullptr) {
+	if (pathProperties) {
 		pathProperties->setSmoothPathEnabled(mConfig->smoothPathEnabled());
 		pathProperties->setSmoothFactor(mConfig->smoothFactor());
 	}
@@ -132,7 +132,7 @@ void AnnotationPropertiesFactory::setPathProperties(const PropertiesPtr &propert
 void AnnotationPropertiesFactory::setTextProperties(const PropertiesPtr &properties, Tools toolType) const
 {
 	auto textProperties = properties.dynamicCast<AnnotationTextProperties>();
-	if (textProperties != nullptr) {
+	if (textProperties) {
 		auto font = mConfig->toolFont(toolType);
 		font.setPointSize(mSettingsProvider->fontSize());
 		textProperties->setFont(font);
@@ -142,7 +142,7 @@ void AnnotationPropertiesFactory::setTextProperties(const PropertiesPtr &propert
 void AnnotationPropertiesFactory::setObfuscateProperties(const PropertiesPtr &properties) const
 {
 	auto obfuscateProperties = properties.dynamicCast<AnnotationObfuscateProperties>();
-	if (obfuscateProperties != nullptr) {
+	if (obfuscateProperties) {
 		obfuscateProperties->setFactor(mSettingsProvider->obfuscationFactor());
 	}
 }
@@ -150,7 +150,7 @@ void AnnotationPropertiesFactory::setObfuscateProperties(const PropertiesPtr &pr
 void AnnotationPropertiesFactory::setStickerProperties(const PropertiesPtr &properties) const
 {
 	auto stickerProperties = properties.dynamicCast<AnnotationStickerProperties>();
-	if (stickerProperties != nullptr) {
+	if (stickerProperties) {
 		stickerProperties->setPath(mSettingsProvider->sticker());
 	}
 }

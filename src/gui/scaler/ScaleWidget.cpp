@@ -36,7 +36,7 @@ ScaleWidget::~ScaleWidget()
 
 void ScaleWidget::activate(AnnotationArea *annotationArea)
 {
-	Q_ASSERT(annotationArea != nullptr);
+	Q_ASSERT(annotationArea);
 
 	mAnnotationArea = annotationArea;
 	mView->setScene(annotationArea);

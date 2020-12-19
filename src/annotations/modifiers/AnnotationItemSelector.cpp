@@ -159,7 +159,7 @@ void AnnotationItemSelector::selectItemAt(const QPointF &position, QList<Abstrac
 {
 	auto item = findItemAt(position, items);
 
-	if (item == nullptr) {
+	if (!item) {
 		clearSelection();
 		return;
 	}
@@ -174,7 +174,7 @@ void AnnotationItemSelector::toggleItemSelectionAt(const QPointF &position, QLis
 {
 	auto item = findItemAt(position, items);
 
-	if (item == nullptr) {
+	if (!item) {
 		clearSelection();
 		return;
 	}

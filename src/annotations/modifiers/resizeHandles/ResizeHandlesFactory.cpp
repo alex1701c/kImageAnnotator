@@ -24,17 +24,17 @@ namespace kImageAnnotator {
 AbstractItemResizeHandles *ResizeHandlesFactory::createResizeHandles(AbstractAnnotationItem *item, double zoomValue)
 {
     auto resizeHandles = GetLineResizeHandles(item, zoomValue);
-    if (resizeHandles != nullptr) {
+    if (resizeHandles) {
         return resizeHandles;
     }
 
 	resizeHandles = GetPointerRectResizeHandles(item, zoomValue);
-	if (resizeHandles != nullptr) {
+	if (resizeHandles) {
 		return resizeHandles;
 	}
 
     resizeHandles = GetRectResizeHandles(item, zoomValue);
-    if (resizeHandles != nullptr) {
+    if (resizeHandles) {
         return resizeHandles;
     }
 
@@ -45,7 +45,7 @@ AbstractItemResizeHandles *ResizeHandlesFactory::createResizeHandles(AbstractAnn
 AbstractItemResizeHandles *ResizeHandlesFactory::GetLineResizeHandles(AbstractAnnotationItem *item, double zoomValue)
 {
     auto lineItem = dynamic_cast<AbstractAnnotationLine *>(item);
-    if (lineItem != nullptr) {
+    if (lineItem) {
         return new LineResizeHandles(lineItem, zoomValue);
     }
     return nullptr;
@@ -54,7 +54,7 @@ AbstractItemResizeHandles *ResizeHandlesFactory::GetLineResizeHandles(AbstractAn
 AbstractItemResizeHandles *ResizeHandlesFactory::GetRectResizeHandles(AbstractAnnotationItem *item, double zoomValue)
 {
     auto rectItem = dynamic_cast<AbstractAnnotationRect *>(item);
-    if (rectItem != nullptr) {
+    if (rectItem) {
         return new RectResizeHandles(rectItem, zoomValue);
     }
     return nullptr;
@@ -63,7 +63,7 @@ AbstractItemResizeHandles *ResizeHandlesFactory::GetRectResizeHandles(AbstractAn
 AbstractItemResizeHandles *ResizeHandlesFactory::GetPointerRectResizeHandles(AbstractAnnotationItem *item, double zoomValue)
 {
 	auto rectItem = dynamic_cast<AbstractAnnotationPointerRect *>(item);
-	if (rectItem != nullptr) {
+	if (rectItem) {
 		return new PointerRectResizeHandles(rectItem, zoomValue);
 	}
 	return nullptr;
@@ -72,7 +72,7 @@ AbstractItemResizeHandles *ResizeHandlesFactory::GetPointerRectResizeHandles(Abs
 AbstractItemResizeHandles *ResizeHandlesFactory::GetPathResizeHandles(AbstractAnnotationItem *item, double zoomValue)
 {
     auto pathItem = dynamic_cast<AbstractAnnotationPath *>(item);
-    if (pathItem != nullptr) {
+    if (pathItem) {
         return new PathResizeHandles(pathItem, zoomValue);
     }
     return nullptr;

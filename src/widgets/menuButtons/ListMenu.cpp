@@ -51,7 +51,7 @@ void ListMenu::addItem(const QIcon &icon, const QString &text, const QVariant &d
 QVariant ListMenu::currentData() const
 {
 	auto item = mListItemGroup->checkedItem();
-	return item != nullptr ? item->data() : QVariant();
+	return item ? item->data() : QVariant();
 }
 
 void ListMenu::setCurrentData(const QVariant &data)
@@ -67,13 +67,13 @@ void ListMenu::setCurrentData(const QVariant &data)
 QIcon ListMenu::currentIcon() const
 {
 	auto item = mListItemGroup->checkedItem();
-	return item != nullptr ? item->icon() : QIcon();
+	return item ? item->icon() : QIcon();
 }
 
 QString ListMenu::currentText() const
 {
 	auto item = mListItemGroup->checkedItem();
-	return item != nullptr ? item->text() : QString();
+	return item ? item->text() : QString();
 }
 
 void ListMenu::setDataVisible(const QVariant &data, bool isVisible)

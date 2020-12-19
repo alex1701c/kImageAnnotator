@@ -55,7 +55,7 @@ void PasteCommandTest::TestRedo_Should_AddPastedItemsToAnnotationAreaAtGivenPosi
 	pasteCommand.redo();
 
 	auto lastItem = dynamic_cast<AnnotationLine *>(annotationArea.items().last());
-	QVERIFY(lastItem != nullptr);
+	QVERIFY(lastItem);
 	QCOMPARE(lastItem->position(), position + offset);
 }
 
@@ -75,7 +75,7 @@ void PasteCommandTest::TestUndo_Should_RemovePastedItemsFromAnnotationArea()
 	itemsWithOffset[item] = offset;
 	PasteCommand pasteCommand(itemsWithOffset, position, &itemFactory, &annotationArea);
 	pasteCommand.redo();
-	QVERIFY(dynamic_cast<AnnotationLine *>(annotationArea.items().last()) != nullptr);
+	QVERIFY(dynamic_cast<AnnotationLine *>(annotationArea.items().last()));
 
 	pasteCommand.undo();
 

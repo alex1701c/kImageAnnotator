@@ -44,7 +44,7 @@ void CustomToolButton::setActiveAction(QAction *action)
 
 void CustomToolButton::trigger()
 {
-	if (defaultAction() != nullptr) {
+	if (defaultAction()) {
 		defaultAction()->trigger();
 	}
 }

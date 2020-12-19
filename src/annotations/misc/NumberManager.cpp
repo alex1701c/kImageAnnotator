@@ -43,7 +43,7 @@ void NumberManager::addItem(AnnotationNumberArrow *item)
 
 void NumberManager::addItemInner(AbstractAnnotationItem *item)
 {
-	Q_ASSERT(item != nullptr);
+	Q_ASSERT(item);
 
 	connect(item, &AbstractAnnotationItem::visibleChanged, this, &NumberManager::updateNumbers);
 	mItems.append(item);

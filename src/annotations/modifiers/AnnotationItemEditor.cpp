@@ -29,14 +29,14 @@ AnnotationItemEditor::AnnotationItemEditor()
 void AnnotationItemEditor::handleEditAt(const QPointF &pos, QList<AbstractAnnotationItem *> *items)
 {
 	mCurrentEditItem = findEditableItemAt(pos, items);
-	if (mCurrentEditItem != nullptr) {
+	if (mCurrentEditItem) {
 		mCurrentEditItem->enableEditing();
 	}
 }
 
 bool AnnotationItemEditor::isEditing() const
 {
-	return mCurrentEditItem != nullptr;
+	return mCurrentEditItem;
 }
 
 void AnnotationItemEditor::clear()
@@ -50,7 +50,7 @@ EditableItem *AnnotationItemEditor::findEditableItemAt(const QPointF &position, 
 
 	for (auto item : *items) {
 		auto editableItem = dynamic_cast<EditableItem *>(item);
-		if (editableItem != nullptr && item->intersects(rect)) {
+		if (editableItem && item->intersects(rect)) {
 			return editableItem;
 		}
 	}

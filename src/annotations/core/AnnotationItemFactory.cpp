@@ -27,7 +27,7 @@ AnnotationItemFactory::AnnotationItemFactory(AnnotationPropertiesFactory *proper
 	mNumberManager(new NumberManager),
 	mNextZValue(1)
 {
-	Q_ASSERT(mSettingsProvider != nullptr);
+	Q_ASSERT(mSettingsProvider);
 
 	reset();
 }
@@ -77,7 +77,7 @@ AbstractAnnotationItem *AnnotationItemFactory::create(const QPointF &initPositio
 
 AbstractAnnotationItem *AnnotationItemFactory::clone(const AbstractAnnotationItem *item)
 {
-	Q_ASSERT(item != nullptr);
+	Q_ASSERT(item);
 
 	auto newItem = cloneItem(item);
 	setZValue(newItem);
@@ -153,7 +153,7 @@ AbstractAnnotationItem *AnnotationItemFactory::createItem(const QPointF &initPos
 
 AbstractAnnotationItem *AnnotationItemFactory::cloneItem(const AbstractAnnotationItem *item)
 {
-	Q_ASSERT(item != nullptr);
+	Q_ASSERT(item);
 
 	AbstractAnnotationItem *newItem = nullptr;
 
@@ -224,7 +224,7 @@ AbstractAnnotationItem *AnnotationItemFactory::cloneItem(const AbstractAnnotatio
 
 void AnnotationItemFactory::setZValue(AbstractAnnotationItem *item)
 {
-	if (item != nullptr) {
+	if (item) {
 		item->setZValue(mNextZValue++);
 	}
 }

@@ -74,11 +74,11 @@ void AnnotationSettings::loadFromItem(const AbstractAnnotationItem *item)
 	mWidthPicker->setNumber(properties->width());
 	mFillModePicker->setFillType(properties->fillType());
 	auto textProperties = properties.dynamicCast<AnnotationTextProperties>();
-	if(textProperties != nullptr) {
+	if(textProperties) {
 		mFontSizePicker->setNumber(textProperties->font().pointSize());
 	}
 	auto obfuscateProperties = properties.dynamicCast<AnnotationObfuscateProperties>();
-	if(obfuscateProperties != nullptr) {
+	if(obfuscateProperties) {
 		mObfuscateFactorPicker->setNumber(obfuscateProperties->factor());
 	}
 }

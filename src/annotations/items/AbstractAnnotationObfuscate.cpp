@@ -67,7 +67,7 @@ void AbstractAnnotationObfuscate::updateShape()
 void AbstractAnnotationObfuscate::updateOverlayImage()
 {
 	auto parentScene = scene();
-	if (parentScene != nullptr) {
+	if (parentScene) {
 		auto sceneSize = parentScene->sceneRect().size().toSize();
 		QImage image(sceneSize, QImage::Format_ARGB32_Premultiplied);
 		image.fill(Qt::transparent);

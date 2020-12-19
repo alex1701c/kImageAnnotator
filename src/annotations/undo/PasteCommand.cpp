@@ -26,8 +26,8 @@ PasteCommand::PasteCommand(const QHash<kImageAnnotator::AbstractAnnotationItem *
                            AnnotationItemFactory *itemFactory,
                            kImageAnnotator::AnnotationArea *annotationArea)
 {
-	Q_ASSERT(annotationArea != nullptr);
-	Q_ASSERT(itemFactory != nullptr);
+	Q_ASSERT(annotationArea);
+	Q_ASSERT(itemFactory);
 
 	mAnnotationArea = annotationArea;
 	mItemFactory = itemFactory;

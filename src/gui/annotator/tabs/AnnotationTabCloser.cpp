@@ -24,7 +24,7 @@ namespace kImageAnnotator {
 AnnotationTabCloser::AnnotationTabCloser(QTabWidget *tabWidget) :
 	mTabWidget(tabWidget)
 {
-	Q_ASSERT(mTabWidget != nullptr);
+	Q_ASSERT(mTabWidget);
 }
 
 void AnnotationTabCloser::closeTabTriggered(int index)

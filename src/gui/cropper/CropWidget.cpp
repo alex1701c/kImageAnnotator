@@ -60,7 +60,7 @@ CropWidget::~CropWidget()
 
 void CropWidget::activate(AnnotationArea *annotationArea)
 {
-	Q_ASSERT(annotationArea != nullptr);
+	Q_ASSERT(annotationArea);
 
 	mAnnotationArea = annotationArea;
 	mCropSelectionHandler->init(annotationArea);
@@ -136,7 +136,7 @@ void CropWidget::keyReleaseEvent(QKeyEvent *event)
 
 void CropWidget::crop()
 {
-	Q_ASSERT(mAnnotationArea != nullptr);
+	Q_ASSERT(mAnnotationArea);
 
 	mAnnotationArea->crop(mCropSelectionHandler->selection());
 	emit closing();
