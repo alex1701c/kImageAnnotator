@@ -150,7 +150,7 @@ void TextCursor::movePositionToEndOfBlock(const QTextBlock &targetBlock)
 
 void TextCursor::connectSlots()
 {
-	connect(mBlinkTimer, &QTimer::timeout, [this]()
+	connect(mBlinkTimer, &QTimer::timeout, this, [this]()
 	{
 		mIsVisible = !mIsVisible;
 		emit tick();
