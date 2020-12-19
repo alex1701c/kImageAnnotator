@@ -39,7 +39,7 @@ const QSize MenuItemIconSize(20, 20);
 
 const QSize SettingsWidgetIconSize(20, 20);
 
-const QColor HoverColor(QLatin1Literal("#add8e6"));
+const QColor HoverColor(QStringLiteral("#add8e6"));
 
 } // namespace Constants
 

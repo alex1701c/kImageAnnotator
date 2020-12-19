@@ -21,12 +21,12 @@
 
 void AnnotationPropertiesFactoryTest::initTestCase()
 {
-	QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QLatin1Literal("/tmp"));
+	QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QStringLiteral("/tmp"));
 }
 
 void AnnotationPropertiesFactoryTest::cleanupTestCase()
 {
-	QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QLatin1Literal("$HOME/.config"));
+	QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, QStringLiteral("$HOME/.config"));
 }
 
 void AnnotationPropertiesFactoryTest::TestCreate_Should_SetPropertiesSizeBasedOnConfiguration()
@@ -210,7 +210,7 @@ void AnnotationPropertiesFactoryTest::TestCreate_Should_SetToolFontAndFontSizeBa
 void AnnotationPropertiesFactoryTest::TestCreate_Should_StickerPathBasedOnSettings()
 {
 	auto tool = Tools::Sticker;
-	auto path = QLatin1Literal("/my/path/to/sticker");
+	auto path = QStringLiteral("/my/path/to/sticker");
 	auto config = new Config;
 	auto settingsProvider = new MockSettingsProvider();
 	settingsProvider->setSticker(path);
