@@ -245,28 +245,28 @@ void Config::initSelectedTool()
 
 void Config::initToolColors()
 {
-	for (auto toolType : mAllTools) {
+	for (auto toolType : qAsConst(mAllTools)) {
 		mToolToColor[toolType] = loadToolColor(toolType);
 	}
 }
 
 void Config::initToolTextColors()
 {
-	for (auto toolType : mAllTools) {
+	for (auto toolType : qAsConst(mAllTools)) {
 		mToolToTextColor[toolType] = loadToolTextColor(toolType);
 	}
 }
 
 void Config::initToolWidths()
 {
-	for (auto toolType : mAllTools) {
+	for (auto toolType : qAsConst(mAllTools)) {
 		mToolToWidth[toolType] = loadToolWidth(toolType);
 	}
 }
 
 void Config::initToolFillTypes()
 {
-	for (auto toolType : mAllTools) {
+	for (auto toolType : qAsConst(mAllTools)) {
 		mToolToFillType[toolType] = loadToolFillType(toolType);
 	}
 }
@@ -285,7 +285,7 @@ void Config::initToolFonts()
 
 void Config::initObfuscateFactor()
 {
-	for (auto toolType : mAllTools) {
+	for (auto toolType : qAsConst(mAllTools)) {
 		mToolToObfuscationFactor[toolType] = loadObfuscateFactor(toolType);
 	}
 }

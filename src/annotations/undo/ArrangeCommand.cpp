@@ -39,7 +39,7 @@ void ArrangeCommand::undo()
 
 void ArrangeCommand::redo()
 {
-    for (auto pair : mItemToSwap) {
+    for (auto pair : qAsConst(mItemToSwap)) {
         swapZValues(pair.first, pair.second);
     }
 

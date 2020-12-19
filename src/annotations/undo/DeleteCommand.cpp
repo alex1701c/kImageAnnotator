@@ -29,7 +29,7 @@ DeleteCommand::DeleteCommand(QList<AbstractAnnotationItem *> items, AnnotationAr
 
 void DeleteCommand::undo()
 {
-    for (auto item : mItems) {
+    for (auto item : qAsConst(mItems)) {
         mAnnotationArea->addAnnotationItem(item);
         item->show();
     }
@@ -37,7 +37,7 @@ void DeleteCommand::undo()
 
 void DeleteCommand::redo()
 {
-    for (auto item : mItems) {
+    for (auto item : qAsConst(mItems)) {
         mAnnotationArea->removeAnnotationItem(item);
         item->hide();
     }

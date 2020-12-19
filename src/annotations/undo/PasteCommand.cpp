@@ -45,7 +45,7 @@ PasteCommand::~PasteCommand()
 
 void PasteCommand::undo()
 {
-	for (auto item : mPastedItems) {
+	for (auto item : qAsConst(mPastedItems)) {
 		mAnnotationArea->removeAnnotationItem(item);
 		item->hide();
 	}
@@ -53,7 +53,7 @@ void PasteCommand::undo()
 
 void PasteCommand::redo()
 {
-	for (auto item : mPastedItems) {
+	for (auto item : qAsConst(mPastedItems)) {
 		mAnnotationArea->addAnnotationItem(item);
 		item->show();
 	}

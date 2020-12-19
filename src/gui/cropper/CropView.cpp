@@ -83,7 +83,7 @@ void CropView::drawForeground(QPainter *painter, const QRectF &rect)
 	if (!mCropSelectionHandler->isInMotion()) {
 		painter->setPen(QPen(Qt::white, 1, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin));
 		painter->setBrush(QColor(Qt::gray));
-		auto handles = mCropSelectionHandler->selectionHandles();
+		const auto handles = mCropSelectionHandler->selectionHandles();
 
 		for (auto handle : handles) {
 			painter->drawRect(handle);

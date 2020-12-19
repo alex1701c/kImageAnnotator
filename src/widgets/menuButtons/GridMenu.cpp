@@ -70,7 +70,8 @@ GridMenuButton *GridMenu::createButton(const QIcon &icon, const QString &toolTip
 
 void kImageAnnotator::GridMenu::setCurrentData(const QVariant &data)
 {
-	for(auto button : mButtonGroup->buttons()) {
+	const auto buttons = mButtonGroup->buttons();
+	for(auto button : buttons) {
 		auto gridMenuButton = dynamic_cast<GridMenuButton *>(button);
 		if(gridMenuButton != nullptr && gridMenuButton->data() == data) {
 			gridMenuButton->setChecked(true);
@@ -106,7 +107,7 @@ void kImageAnnotator::GridMenu::buttonClicked()
 
 void GridMenu::clear()
 {
-	auto buttons = mButtonGroup->buttons();
+	const auto buttons = mButtonGroup->buttons();
 	for(auto button : buttons) {
 		mButtonGroup->removeButton(button);
 		mLayout->removeWidget(button);

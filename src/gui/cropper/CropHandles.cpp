@@ -35,7 +35,7 @@ QVector<QRectF> CropHandles::handles() const
 
 void CropHandles::grabHandle(const QPointF &position, const QRectF &selection)
 {
-	for (auto handle : mHandles) {
+	for (auto handle : qAsConst(mHandles)) {
 		if (handle.contains(position)) {
 			mGrabbedIndex = mHandles.indexOf(handle);
 			mGrabOffset = position - ShapeHelper::rectPointAtIndex(selection, mGrabbedIndex);

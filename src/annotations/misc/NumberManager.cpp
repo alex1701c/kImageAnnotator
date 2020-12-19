@@ -58,7 +58,7 @@ void NumberManager::reset()
 void NumberManager::updateNumbers()
 {
 	auto number = mFirstNumber;
-	for (auto item : mItems) {
+	for (auto item : qAsConst(mItems)) {
 		if (item->isVisible()) {
 			auto numberItem = dynamic_cast<BaseAnnotationNumber *>(item);
 			numberItem->setNumber(number++);

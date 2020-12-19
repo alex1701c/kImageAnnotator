@@ -18,7 +18,7 @@
  */
 
 #include "StickerPicker.h"
-
+#include <QDebug>
 namespace kImageAnnotator {
 
 StickerPicker::StickerPicker(QWidget *parent) :
@@ -49,6 +49,10 @@ QString StickerPicker::sticker() const
 
 void StickerPicker::init()
 {
+	qWarning() << Q_FUNC_INFO;
+	qWarning() << Q_FUNC_INFO;
+	qWarning() << Q_FUNC_INFO;
+	qWarning() << Q_FUNC_INFO;
 	mLayout->setContentsMargins(0, 0, 0, 0);
 
 	auto icon = IconLoader::load(QStringLiteral("sticker.svg"));

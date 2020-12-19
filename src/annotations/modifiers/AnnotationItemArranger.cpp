@@ -50,7 +50,7 @@ void AnnotationItemArranger::sendToBack()
 void AnnotationItemArranger::moveForward(bool toFront)
 {
     QList<QPair<AbstractAnnotationItem *, AbstractAnnotationItem *>> itemToSwap;
-    for (auto selected : mSelectedItems) {
+    for (auto selected : qAsConst(mSelectedItems)) {
         for (auto i = mItems->count() - 1; i >= 0; i--) {
             auto item = mItems->value(i);
             if (ItemHelper::zValueGreaterThen(item, selected) && !mSelectedItems.contains(item)) {
